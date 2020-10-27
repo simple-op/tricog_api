@@ -1,0 +1,14 @@
+{
+  "name": "tricog",
+  "version": "1.0.0",
+  "description": "Basic api for user_info ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ramesh Kumar",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
