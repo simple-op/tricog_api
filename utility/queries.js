@@ -1,0 +1,1 @@
+module.exports.insertData=` insert into customer values("${rs[0]["count(*)"] + 1}","${req.body.first_name}","${req.body.pan_number}","${date()}","${req.body.gender}","${req.body.email}","${req.body.profile_image}") `;

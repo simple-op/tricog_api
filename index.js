@@ -1,21 +1,16 @@
 
 const connection=require("./config/mysql");
-
 const express=require("express");
-const { query } = require("./config/mysql");
-
-
+const router =require("./routes/index")
 const app=express();
 // app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 const port=8080;
 
-app.get("/",function(req,res){
 
-  res.json({
-      "hello"
-:true  })
-})
+
+app.use("/",router)
+
 
 
 
