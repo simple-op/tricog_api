@@ -7,7 +7,7 @@ const getCustomer=require("../controllers/api/getCustomer")
 
 
 router.post("/create_customer",createCustomer);
-router.get("/",getCustomer);
+router.get("/get_customer",getCustomer);
 
 
 module.exports=router;
