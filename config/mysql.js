@@ -21,7 +21,7 @@ connection.connect(function(err) {
     id int primary key ,
     first_name varchar(50) not null,
     pan_number varchar(10)  not null unique ,
-    dob  datetime  not null,
+    dob  date not null,
     gender varchar(15) not null,
     email varchar(50) not null unique,
     profile_image varchar(200) not null unique
