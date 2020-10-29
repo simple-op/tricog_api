@@ -1,6 +1,6 @@
 
 
-
+// validating Emails via regex
 
 module.exports.validateEmail = (email) => {
     const emailRegx = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -11,7 +11,7 @@ module.exports.validateEmail = (email) => {
 
 }
 
-
+// validating Date of Birth with regex 
 module.exports.validateDate = (_date) => {
 
     const dateRegx = /^\d{4}\-(0?[1-9]|1[012])\-(0?[1-9]|[12][0-9]|3[01])$/;
@@ -38,7 +38,7 @@ module.exports.validateDate = (_date) => {
 
 }
 
-
+// validating Image Url with regex
 module.exports.validateImageUrl = (url) => {
 
     const imageUrl = /(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png)/g
@@ -49,7 +49,7 @@ module.exports.validateImageUrl = (url) => {
 
 }
 
-
+// validating Pan Card number with regex 
 module.exports.validatePanCard = (pan) => {
 
     const pancard = /([A-Z]){5}([0-9]){4}([A-Z]){1}$/;
@@ -58,7 +58,7 @@ module.exports.validatePanCard = (pan) => {
 
 }
 
-
+// validating all fields are sent or not
 module.exports.validateFields = (data) => {
 
 

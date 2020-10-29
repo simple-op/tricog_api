@@ -16,12 +16,12 @@ const createCustomer = (req, res) => {
 
 
 
-    // Decrypt
 
 
 
 
 
+// Validation for each each 
     console.log(req.body);
     if (!validateFields(req.body))
         return res.json(400, {
@@ -75,7 +75,7 @@ const createCustomer = (req, res) => {
 
     connection.query(`select count(*) from customer`, function (err, rs) {
         console.log(rs);
-
+        //  insert query for customer
         const insertData = ` insert into customer values("${rs[0]["count(*)"] + 1}","${req.body.first_name}","${req.body.pan_number}","${validateDate(req.body.dob)}","${req.body.gender}","${req.body.email}","${req.body.profile_image}") `;
 
         connection.query(insertData, function (err, result) {
@@ -85,7 +85,7 @@ const createCustomer = (req, res) => {
 
                 const data = `${req.body.email}`;
 
-                // Encrypt
+                // Encrypt the token
                 const ciphertext = CryptoJS.AES.encrypt(data, secretKey).toString();
 
 

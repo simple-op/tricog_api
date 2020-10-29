@@ -1,9 +1,11 @@
 const express=require("express");
 // requiring express router as middle ware 
 const router=express.Router();
-// requiring home controllers
+// requiring create customer controller
 const createCustomer=require("../controllers/api/createCustomer")
+// requiring get customer controller
 const getCustomer=require("../controllers/api/getCustomer")
+// token middleware
 const verifyToken=require("../middleware/verifyToken")
 
 
