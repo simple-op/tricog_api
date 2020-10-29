@@ -5,9 +5,19 @@ const {
     validatePanCard
 } = require("../../utility/validationFunctions");
 
+const CryptoJS = require("crypto-js");
+const { MD5 } = require("crypto-js");
+
+const secretKey = "ptwmjg.ad";
+
 
 
 const createCustomer = (req, res) => {
+
+
+
+    // Decrypt
+
 
 
 
@@ -71,16 +81,26 @@ const createCustomer = (req, res) => {
         connection.query(insertData, function (err, result) {
 
             console.log(result, err)
-            if (!err)
-                return res.json(200, {
-                    success: "Customer record has been created"
+            if (!err) {
 
+                const data = `${req.body.email}`;
+
+                // Encrypt
+                const ciphertext = CryptoJS.AES.encrypt(data, secretKey).toString();
+
+
+
+                return res.json(200, {
+                    success: "Customer record has been created",
+                    message:"Keep Your token Safe and put in Authorization header", 
+                    accessToken: ciphertext 
                 })
+            }
 
             if (err && err.errno == 1062) {
 
                 if (err.sqlMessage.includes("email"))
-                    return res.json(400, {
+                    return res.json(400, { 
                         error: "Email already registered"
 
                     })
@@ -91,26 +111,29 @@ const createCustomer = (req, res) => {
 
                     })
 
-                    if (err.sqlMessage.includes("profile"))
+                if (err.sqlMessage.includes("profile"))
                     return res.json(400, {
                         error: "Profile image already inuse"
 
                     })
 
-                    
-
-                }
 
 
-                else{
+            }
 
-                   
-                  return  res.json(500,{
+
+            else {
+
+
+                return res.json(500, {
                     error: "Internal Server Error"
-    
+
                 })
-    
-                }
+
+            }
+
+
+
         })
 
     })
