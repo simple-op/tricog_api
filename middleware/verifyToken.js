@@ -5,7 +5,7 @@ const secretKey= "ptwmjg.ad";
 
 function verifyToken(req,res,next){
 
-const token=req.headers["authorization"];
+const token=req.headers["authorization"]?req.headers["authorization"]:"";
  
 
 const bytes  = CryptoJS.AES.decrypt(token, secretKey);
